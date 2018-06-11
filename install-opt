@@ -1,0 +1,41 @@
+#!/bin/bash
+################################################################################
+#/usr/local/opt/gettext/lib/libintl.8.dylib
+#/usr/local/opt/llvm@4/lib/libc++.1.dylib
+################################################################################
+clear
+
+WHO=$(whoami)
+echo "username: $WHO"
+
+echo "Checking depend libraries ... "
+
+
+
+if [[ ! -f /usr/local/opt/llvm@4/lib/libc++.1.dylib ]]; then
+    echo "copying libc++ .... "
+    mkdir -pv /usr/local/opt/llvm@4/lib
+    cp -f ./opt/libc++.1.0.dylib /usr/local/opt/llvm@4/lib
+    cp -f ./opt/libc++.1.dylib /usr/local/opt/llvm@4/lib
+    chown $WHO:admin /usr/local/opt/llvm@4/lib/libc++.1.dylib
+    chown $WHO:admin /usr/local/opt/llvm@4/lib/libc++.1.0.dylib 
+    echo "OK"
+else
+    echo "libc++ already installed "
+    echo "OK"
+fi
+
+
+if [[ ! -f /usr/local/opt/gettext/lib/libintl.8.dylib ]]; then
+    echo "copying libintl .... "
+    mkdir -pv /usr/local/opt/gettext/lib
+    cp -f ./opt/libintl.8.dylib /usr/local/opt/gettext/lib
+    chown $WHO:admin /usr/local/opt/gettext/lib/libintl.8.dylib
+    echo "OK"
+else
+    echo "libintl already installed "
+    echo "OK\n"
+fi
+
+read -n 1 -s -r -p "Press any key to continue"
+./help
