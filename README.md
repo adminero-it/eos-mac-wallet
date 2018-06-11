@@ -9,6 +9,12 @@ this is EOS Emerge simple CLI interface for *SECURE* and *LOCAL* voting
 binaries compiled on Mac OS High Sierra, EOSIO master branch 11-06-2018
 https://github.com/EOSIO/eos
 
-run ./help for some help :)
+download, unpack, run terminall.app (cmd+space type terminal)  
+navigate to simplewallet type: cd Downloads/simplewallet-master
+
+type ./help for some help :)
 use ./cleos script instead of ./bin/cleos which is configured for our secure fullnode server over https connection
+
+if you not familiar with CLI interface please feel free to ask us on our telegram channel https://t.me/eosemerge
+or by email: support@eosemerge.io
 </pre>
