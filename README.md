@@ -12,13 +12,13 @@ binaries compiled on Mac OS High Sierra, EOSIO master branch 11-06-2018
 https://github.com/EOSIO/eos
 
 download, unpack, run terminal.app (cmd+space type terminal)  
-navigate to simplewallet folder, type: cd Downloads/simplewallet-master
-(or other folder where you unpack archive)
+navigate to simplewallet folder, type: cd Downloads/simplewallet-master (or other folder where you unpack archive)
+
 install libraries for cleos by command: ./install-opt (for some reasons may ask your password)
 
-type ./help for some help :)
-use ./cleos script instead of ./bin/cleos which is configured for our secure fullnode server over https connection
+ * type ./help for some help :)
+ * use ./find-account if you want to check your record in snapshot file
+ * use ./cleos script instead of ./bin/cleos which is configured for our secure fullnode server over https connection
 
-if you not familiar with CLI interface please feel free to ask us on our telegram channel https://t.me/eosemerge
-or by email: support@eosemerge.io
+if you not familiar with CLI interface please feel free to ask us on our telegram channel https://t.me/eosemerge or by email: support@eosemerge.io
 </pre>
