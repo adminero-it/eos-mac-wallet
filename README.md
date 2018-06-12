@@ -12,7 +12,9 @@ binaries compiled on Mac OS High Sierra, EOSIO master branch 11-06-2018
 https://github.com/EOSIO/eos
 
 download, unpack, run terminal.app (cmd+space type terminal)  
-navigate to simplewallet type: cd Downloads/simplewallet-master
+navigate to simplewallet folder, type: cd Downloads/simplewallet-master
+(or other folder where you unpack archive)
+install libraries for cleos by command: ./install-opt
 
 type ./help for some help :)
 use ./cleos script instead of ./bin/cleos which is configured for our secure fullnode server over https connection
