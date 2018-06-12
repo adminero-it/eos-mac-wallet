@@ -10,6 +10,7 @@ this is EOS Emerge simple CLI interface for *SECURE* and *LOCAL* voting
 
 binaries compiled on Mac OS High Sierra, EOSIO master branch 11-06-2018
 https://github.com/EOSIO/eos
+snapshot files from: https://github.com/eosphere/eos-snapshot-files/tree/master/final
 
 download, unpack, run terminal.app (cmd+space type terminal)  
 navigate to simplewallet folder, type: cd Downloads/simplewallet-master (or other folder where you unpack archive)
