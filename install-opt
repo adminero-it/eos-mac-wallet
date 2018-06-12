@@ -40,7 +40,7 @@ if [[ ! -f /usr/local/opt/gettext/lib/libintl.8.dylib ]]; then
     echo "OK"
 else
     echo "libintl already installed "
-    echo "OK\n"
+    echo "OK"
 fi
 
 read -n 1 -s -r -p "Press any key to continue"
