@@ -9,16 +9,22 @@ WHO=$(whoami)
 echo "username: $WHO"
 
 echo "Checking depend libraries ... "
-
+echo ""
+echo "*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***"
+echo "if the program ask password, type YOUR LOCAL MAC password, then press <enter>" 
+echo "WARNING: password will be invisible"
+echo "*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***"
+echo ""
+echo ""
 
 
 if [[ ! -f /usr/local/opt/llvm@4/lib/libc++.1.dylib ]]; then
     echo "copying libc++ .... "
-    mkdir -pv /usr/local/opt/llvm@4/lib
-    cp -f ./opt/libc++.1.0.dylib /usr/local/opt/llvm@4/lib
-    cp -f ./opt/libc++.1.dylib /usr/local/opt/llvm@4/lib
-    chown $WHO:admin /usr/local/opt/llvm@4/lib/libc++.1.dylib
-    chown $WHO:admin /usr/local/opt/llvm@4/lib/libc++.1.0.dylib 
+    sudo mkdir -pv /usr/local/opt/llvm@4/lib
+    sudo cp -f ./opt/libc++.1.0.dylib /usr/local/opt/llvm@4/lib
+    sudo cp -f ./opt/libc++.1.dylib /usr/local/opt/llvm@4/lib
+    sudo chown $WHO:admin /usr/local/opt/llvm@4/lib/libc++.1.dylib
+    sudo chown $WHO:admin /usr/local/opt/llvm@4/lib/libc++.1.0.dylib 
     echo "OK"
 else
     echo "libc++ already installed "
@@ -28,9 +34,9 @@ fi
 
 if [[ ! -f /usr/local/opt/gettext/lib/libintl.8.dylib ]]; then
     echo "copying libintl .... "
-    mkdir -pv /usr/local/opt/gettext/lib
-    cp -f ./opt/libintl.8.dylib /usr/local/opt/gettext/lib
-    chown $WHO:admin /usr/local/opt/gettext/lib/libintl.8.dylib
+    sudo mkdir -pv /usr/local/opt/gettext/lib
+    sudo cp -f ./opt/libintl.8.dylib /usr/local/opt/gettext/lib
+    sudo chown $WHO:admin /usr/local/opt/gettext/lib/libintl.8.dylib
     echo "OK"
 else
     echo "libintl already installed "
