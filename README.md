@@ -8,7 +8,7 @@
 this is EOS Emerge simple CLI interface for *SECURE* and *LOCAL* voting
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-binaries compiled on Mac OS High Sierra, EOSIO master branch 11-06-2018
+binaries compiled on Mac OS High Sierra, EOSIO tag v1.0.3
 https://github.com/EOSIO/eos
 snapshot files from: https://github.com/eosphere/eos-snapshot-files/tree/master/final
 
