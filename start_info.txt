@@ -1,0 +1,14 @@
+{
+  "server_version": "012dc012",
+  "chain_id": "aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906",
+  "head_block_num": 718839,
+  "last_irreversible_block_num": 718838,
+  "last_irreversible_block_id": "000af7f69055f27476f4e5cf6cd04f73e73bdf7e8e6a4bfbe645ae19d1c4072d",
+  "head_block_id": "000af7f7c0752dd846af7dcfa686e4b1e873f8ca94e3094f170cbacb7b0d841e",
+  "head_block_time": "2018-06-14T14:49:27",
+  "head_block_producer": "genesisblock",
+  "virtual_block_cpu_limit": 200000000,
+  "virtual_block_net_limit": 1048576000,
+  "block_cpu_limit": 199900,
+  "block_net_limit": 1048576
+}

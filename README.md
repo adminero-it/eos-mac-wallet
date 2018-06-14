@@ -5,8 +5,8 @@
 888888 88 YY 88 888888 88  Yb  YboodP 888888 88      YbodP  88ood8 dP""""Yb 88  Y8 8888Y"  
 
 
-this is EOS Emerge simple CLI interface for *SECURE* and *LOCAL* voting
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+this is EOS Emerge simple CLI and WWW interface for *SECURE* and *LOCAL* voting
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 binaries compiled on Mac OS High Sierra, EOSIO tag v1.0.3
 https://github.com/EOSIO/eos
@@ -22,4 +22,10 @@ install libraries for cleos by command: ./install-opt (for some reasons may ask 
  * use ./cleos script instead of ./bin/cleos which is configured for our secure fullnode server over https connection
 
 if you not familiar with CLI interface please feel free to ask us on our telegram channel https://t.me/eosemerge or by email: support@eosemerge.io
+
+*****
+..... and now, we created WWW interface! just run ./START_PROGRAM from your terminal, and forget about black and white screen!
+..... more improvements comming soon, be ready! and of course vote for us :)
+*****
+
 </pre>
