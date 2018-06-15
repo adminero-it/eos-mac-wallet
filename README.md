@@ -13,7 +13,7 @@ https://github.com/EOSIO/eos
 snapshot files from: https://github.com/eosphere/eos-snapshot-files/tree/master/final
 
 download, unpack, run terminal.app (cmd+space type terminal)  
-navigate to simplewallet folder, type: cd Downloads/simplewallet-master (or other folder where you unpack archive)
+navigate to eos-mac-wallet folder, type: cd Downloads/eos-mac-wallet-master (or other folder where you unpack archive)
 
 install libraries for cleos by command: ./install-opt (for some reasons may ask your password)
 
