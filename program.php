@@ -41,7 +41,7 @@ if ($_POST['action'] == 'check') {
         $error=true; }
 
     if ($error) { print("Ooops, something is wrong, you may run install-opt script again<br /<br />"); }
-    else { print("Everythings looks good :)<br /<br />"); }
+    else { print("Everything looks good :)<br /<br />"); }
     
 }
 

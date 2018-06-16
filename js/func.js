@@ -9,15 +9,61 @@ function refreshwalletlist(){
                                 });    
 }
 function showhidecreate(){
-    
             $("#create").toggle( "slow", function() {
                                         // Animation complete.
                                                     });
+}
+function showhidechangeaccount(){
+            if($('#findaccountfrm').is(':visible')){ $("#findaccountfrm").toggle(); }
+            $("#chgaccountfrm").toggle( "slow", function() {
+                                        // Animation complete.
+                                                    });
+}
+function showhidefindaddress(){
+            if($('#chgaccountfrm').is(':visible')){ $("#chgaccountfrm").toggle(); }
+            $("#findaccountfrm").toggle( "slow", function() {
+                                        // Animation complete.
+                                                    });
+}
+
+function countvoted(){
+    var zzz = $(".voted:checked").length;
+    alert(zzz);    
+}
+function checkstoredaccount(){
+         $.post(
+                "vote.php", 
+                { id: $(this).attr('id'), 
+                  action: 'checkstoredaccount', },
+                function(data) { 
+                                if (data.status == 'OK') {
+                                    $('#storedaccounttxt').html('stored EOS account:<br /><span style="font-size:1.5em;"><strong>'+data.eosaddress+'</strong></span>');
+                                    $('#storedaccount').val(data.eosaddress);
+                                    $('#accountinfo').attr('name',data.eosaddress);
+                                    if($('#accountinfo').is(':visible')){ } else { $('#accountinfo').toggle(); }
+                                    $('#voteinfobox').prepend("&bullet; found stored account<br /><br />");
+                                } else {
+                                    $('#storedaccount').val(data);
+                                    $('#voteinfobox').prepend("&bullet; account not stored<br /><br />");
+                                }
+                                });    
+}
+function getproducers(){
+             $.post(
+                    "vote.php", 
+                    { id: $(this).attr('id'),
+                      action: 'getproducers', },
+                    function(data) { 
+                                    $('#producers').html(data);
+                                    $('#voteinfobox').prepend("&bullet; producers list loaded<br /><br />");
+                                    });
 }
 
 $(document).ready(function() {
     
     refreshwalletlist();
+    checkstoredaccount();
+    getproducers();
 
 });
 
@@ -41,9 +87,36 @@ setInterval(function(){
 
 $(function () {
 
+        $('#producers').on('click', '.voted', function (){
+        //$(".voted").click(function () {
+            //countvoted();
+            var zzz = $(".voted:checked").length;
+            var ccvoted = zzz;
+            var ccremain = 30 - zzz;
+            $('#cvoted').html(ccvoted);
+            $('#cremainig').html(ccremain);
+            var what = $(this).attr('name')+',';
+            
+            if ($(this).is(':checked'))  { $('#bpselected').text( $('#bpselected').text() +what); }
+            if (!$(this).is(':checked')) { var myselected=$('#bpselected').text(); myselected = myselected.replace(what,''); $('#bpselected').text(myselected); }
+            if (ccvoted == 0){ 
+                $('#votebtn').html('VOTE:');
+                if($('#votereminder').is(':visible')){ $("#votereminder").toggle(); }
+            }
+            else { 
+                $('#votebtn').html('<input id="votebtngenerated" class="bt/n btn-default" type="button" value="VOTE:" style="vertical-align:text-bottom;" />'); 
+                if($('#votereminder').is(':visible')){ } else { $("#votereminder").toggle(); }
+            }
+        });
 
         $("#showcreate").click(function () {
             showhidecreate();
+        });
+        $("#changeaccount").click(function () {
+            showhidechangeaccount();
+        });
+        $("#findaddress").click(function () {
+            showhidefindaddress();
         });
 
         $('#newbtn').click(function(){ 
@@ -89,6 +162,7 @@ $(function () {
         $('#walletsbox').on('click', '.importbtn', function (){
         //$('.importbtn').click(function(){ 
             var idd = '#impass-'+$(this).attr('id');
+            var iddval = '#impass-'+$(this);
              $.post(
                     "wallet.php", 
                     { id: $(this).attr('id'),
@@ -96,6 +170,8 @@ $(function () {
                       action: 'import', },
                     function(data) { 
                                     $('#infobox').prepend(data+'<br /><br />');
+                                    $(iddval).attr('value','');
+                                    $(iddval).val('');
                                     });
               });
 
@@ -158,6 +234,11 @@ $(function () {
                                     });
               });
 
+        $('#refreshwallets').click(function(){ 
+                    refreshwalletlist();
+              });
+
+
         $('#checkbtn').click(function(){ 
              $.post(
                     "program.php", 
@@ -168,9 +249,77 @@ $(function () {
                                     });
               });
 
+        $('#accountinfo').click(function(){ 
+             $.post(
+                    "vote.php", 
+                    { id: $(this).attr('id'), 
+                      address: $('#accountinfo').attr('name'),
+                      action: 'accountinfo', },
+                    function(data) { 
+                                    $('#voteinfobox').prepend('INFO: '+data.account_name+' created: '+data.created+'<br />NET: '+data.total_resources.net_weight+' CPU: '+data.total_resources.cpu_weight+'<br />VOTED: '+data.voter_info.producers+'<br /><br />');
+                                    });
+              });
 
-        $('#refreshwallets').click(function(){ 
-                    refreshwalletlist();
+        $('#findstringbtn').click(function(){ 
+             $.post(
+                    "vote.php", 
+                    { id: $(this).attr('id'), 
+                      address: $('#findstring').val(),
+                      action: 'findaddress', },
+                    function(data) { 
+                                    if (data.status == 'OK')        { 
+                                                                        if($('#findaccountsavebtn').is(':visible')){ } else { $("#findaccountsavebtn").toggle(); }
+                                                                        $('#voteinfobox').prepend(data.kom+'<br />EOS address: <strong>'+data.eosaddress+'</strong><br />ETH address: '+data.ethaddress+'<br />EOS pubkey: '+data.eospubkey+'<br />Tokens: '+data.tokens+'<br /><br />');
+                                                                    } 
+                                    else if (data.status == 'NOOK') {  
+                                                                        if($('#findaccountsavebtn').is(':visible')){ $("#findaccountsavebtn").toggle(); }
+                                                                        $('#voteinfobox').prepend(data.kom+'<br />EOS address: <strong>'+data.eosaddress+'</strong><br />ETH address: '+data.ethaddress+'<br />Tokens: '+data.tokens+'<br /><br />');
+                                                                    }
+                                    else                            {
+                                                                        if($('#findaccountsavebtn').is(':visible')){ $("#findaccountsavebtn").toggle(); }
+                                                                        $('#voteinfobox').prepend(data.kom+'<br /><br />');
+                                                                    }
+                                    });
+              });
+
+        $('#findaccountsavebtn').click(function(){ 
+             $.post(
+                    "vote.php", 
+                    { id: $(this).attr('id'), 
+                      address: $('#findstring').val(),
+                      action: 'storefoundaccount', },
+                    function(data) {    
+                                        if (data.status == 'OK'){ checkstoredaccount(); }
+                                        $('#voteinfobox').prepend(data.kom+'<br /><br />');
+                                    });
+              });
+
+        $('#changeaddressbtn').click(function(){ 
+             $.post(
+                    "vote.php", 
+                    { id: $(this).attr('id'), 
+                      address: $('#newaddress').val(),
+                      action: 'changeaddress', },
+                    function(data) {    
+                                        if (data.status == 'OK'){ checkstoredaccount(); if($('#chgaccountfrm').is(':visible')){ $("#chgaccountfrm").toggle(); }  }
+                                        $('#voteinfobox').prepend(data.kom+'<br /><br />');
+                                    });
+              });
+
+        $('#vote').on('click', '#votebtngenerated', function (){
+        //$('#votebtngenerated').click(function(){ 
+                var voter = $('#storedaccount').attr('value');
+
+             $.post(
+                    "vote.php", 
+                    { id: $(this).attr('id'), 
+                      bplist: $('#bpselected').text(),
+                      voter: voter,
+                      action: 'vote', },
+                    function(data) {    
+                                        if (data.status == 'OK'){   }
+                                        $('#voteinfobox').prepend(data+'<br /><br />');
+                                    });
               });
 
 

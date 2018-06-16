@@ -31,9 +31,9 @@
 
     <!-- Custom scripts for this template -->
     <script src="js/grayscale.min.js"></script>
-
-
     <script src="js/func.js"></script>
+    <link href="css/my.css" rel="stylesheet">
+
   </head>
   <body id="page-top">
 
@@ -102,7 +102,6 @@
                 <input id="newbtn" type="button" value="create" class="bt/n btn-default" />
                 <input id="savepass" type="checkbox" name="savepass" /> <span style="font-size:0.8em;">save password to local file</span>
             </p>
-
           </div>
 
           <div class="col-8 mx-auto" align="left" style="text-align: left;">
@@ -112,7 +111,7 @@
                 <br />
           </div>
           <div class="col-4 mx-auto" align="left" style="border:1px solid white;width:100%;height:100%;min-height:250px;max-height:350px;overflow:auto;">
-              <h4 style="border-bottom:1px solid white;">infobox</h4>
+              <h4 style="border-bottom:1px solid white;margin-bottom: 5px;">infobox</h4>
               <span id="infobox" style="font-size: 0.7em;">
                 &nbsp;
               </span>
@@ -125,10 +124,51 @@
     <!-- Vote Section -->
     <section id="vote" class="content-section text-center">
       <div class="container">
-        <div class="col-lg-8 mx-auto">
-          <h2>VOTE</h2>
-          <p style="margin-bottom:100px;">* * * comming soon * * *</p>
-          <a href="http://eosemerge.io/" class="btn btn-default btn-lg">Visit our Page</a> <a href="https://gitlab.com/emergepoland/eos-mac-wallet" class="btn btn-default btn-lg">check gitlab repo</a>
+        <div class="row">
+
+            <div class="col-lg-12 mx-auto" align="left" style="text-align: left;vertical-align: middle;">
+                <span id="storedaccounttxt" style="padding-right:20px;vertical-ali/gn: text-bottom;"></span>
+                <input id="storedaccount" type="hidden" value="" />
+                <input id="accountinfo" name="" class="bt/n btn-default" type="button" value="stored account info" style="vertical-align:text-bottom;display:none;" />
+                <input id="findaddress" class="bt/n btn-default" type="button" value="find address" style="vertical-align:text-bottom;" />
+                <input id="changeaccount" class="bt/n btn-default" type="button" value="change account" style="vertical-align:text-bottom;" />
+            </div>
+
+          <div id="chgaccountfrm" class="col-lg-12 mx-auto" style="text-align:left;margin-top:20px;display:none;">
+            <p>please enter EOS address: 
+                <input id="newaddress" name="newaddress" type="text" placeholder="12 char EOS address" />
+                <input id="changeaddressbtn" type="button" value="change account" class="bt/n btn-default" /> <span style="font-size: 0.8em;"> (it will be locally stored)</span></span>
+            </p>
+          </div>
+
+          <div id="findaccountfrm" class="col-lg-12 mx-auto" style="text-align:left;margin-top:20px;display:none;">
+            <p>please enter ETH address / EOS public key / EOS address: 
+                <input id="findstring" name="findstring" type="text" placeholder="ETH, EOS Pubkey, EOS address" />
+                <input id="findstringbtn" type="button" value="find account" class="bt/n btn-default" /> 
+                <input id="findaccountsavebtn" type="button" value="store this" class="bt/n btn-default" style="display: none;" /> </span>
+            </p>
+          </div>
+    
+            <div class="col-lg-12 mx-auto">
+              <h2 style="margin: 5px;"><span id="votebtn">VOTE:</span> <span style="font-size: 0.7em;">selected <span id="cvoted">0</span> producers <span id="cremainig">30</span> remainig</span></h2>
+              <span id="bpselected" style="font-size: 0.6em;margin: 5px;"></span>
+              <h5 id="votereminder" style="font-size:0.6em;display:none;color:yellow;margin:2px;">please check your wallet! it must be unlocked, and keys imported</h5>
+            </div>
+              
+            <div class="col-6 mx-auto" align="left" style="border:1px solid white;width:100%;height:100%;min-height:250px;max-height:350px;overflow:auto;">
+            <h4 style="border-bottom:1px solid white;margin-bottom: 5px;">Registered producers</h4>
+            <span id="producers" style="fo/nt-size: 0.7em;">
+                &nbsp;
+              </span>
+            </div>
+
+            <div class="col-4 mx-auto" align="left" style="border:1px solid white;width:100%;height:100%;min-height:250px;max-height:350px;overflow:auto;">
+              <h4 style="border-bottom:1px solid white;margin-bottom: 5px;">infobox</h4>
+              <span id="voteinfobox" style="font-size: 0.7em;">
+                &nbsp;
+              </span>
+            </div>
+
         </div>
       </div>
     </section>
