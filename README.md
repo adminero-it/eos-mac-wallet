@@ -30,7 +30,7 @@ if you not familiar with CLI interface please feel free to ask us on our telegra
 *******************************************************************************
  and now, we created WWW interface! just type:
 
-./START_PROGRAM 
+./START-PROGRAM 
 
 from your terminal, and forget about black and white screen!
 more improvements comming soon, be ready! and of course vote for us :)
