@@ -110,7 +110,7 @@
           <div id="walletsbox" class="col-8 mx-auto" align="left">
                 <br />
           </div>
-          <div class="col-4 mx-auto" align="left" style="border:1px solid white;width:100%;height:100%;min-height:250px;max-height:350px;overflow:auto;">
+          <div class="col-4 mx-auto" align="left" style="border:1px solid white;width:100%;height:100%;min-height:350px;max-height:350px;overflow:auto;">
               <h4 style="border-bottom:1px solid white;margin-bottom: 5px;">infobox</h4>
               <span id="infobox" style="font-size: 0.7em;">
                 &nbsp;
@@ -162,7 +162,7 @@
               </span>
             </div>
 
-            <div class="col-4 mx-auto" align="left" style="border:1px solid white;width:100%;height:100%;min-height:250px;max-height:350px;overflow:auto;">
+            <div class="col-4 mx-auto" align="left" style="border:1px solid white;width:100%;height:100%;min-height:350px;max-height:350px;overflow:auto;">
               <h4 style="border-bottom:1px solid white;margin-bottom: 5px;">infobox</h4>
               <span id="voteinfobox" style="font-size: 0.7em;">
                 &nbsp;
