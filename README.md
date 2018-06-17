@@ -13,9 +13,13 @@ https://github.com/EOSIO/eos
 snapshot files from: https://github.com/eosphere/eos-snapshot-files/tree/master/final
 
 download, unpack, run terminal.app (cmd+space type terminal)  
-navigate to eos-mac-wallet folder, type: cd Downloads/eos-mac-wallet-master (or other folder where you unpack archive)
+navigate to eos-mac-wallet folder, type: 
 
-install libraries for cleos by command: ./install-opt (for some reasons may ask your password)
+cd Downloads/eos-mac-wallet-master (or other folder where you unpack archive)
+
+install libraries for cleos by command: 
+
+./install-opt (for some reasons may ask your password)
 
  * type ./help for some help :)
  * use ./find-account if you want to check your record in snapshot file
@@ -23,9 +27,13 @@ install libraries for cleos by command: ./install-opt (for some reasons may ask 
 
 if you not familiar with CLI interface please feel free to ask us on our telegram channel https://t.me/eosemerge or by email: support@eosemerge.io
 
-*****
-..... and now, we created WWW interface! just run ./START_PROGRAM from your terminal, and forget about black and white screen!
-..... more improvements comming soon, be ready! and of course vote for us :)
-*****
+*******************************************************************************
+ and now, we created WWW interface! just type:
+
+./START_PROGRAM 
+
+from your terminal, and forget about black and white screen!
+more improvements comming soon, be ready! and of course vote for us :)
+*******************************************************************************
 
 </pre>
