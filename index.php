@@ -156,7 +156,7 @@
             </div>
               
             <div class="col-6 mx-auto" align="left" style="border:1px solid white;width:100%;height:100%;min-height:250px;max-height:350px;overflow:auto;">
-            <h4 style="border-bottom:1px solid white;margin-bottom: 5px;">Registered producers</h4>
+            <h4 style="border-bottom:1px solid white;margin-bottom: 5px;">Registered producers<span style="font-size: 0.5em;"> [random order]</span></h4>
             <span id="producers" style="fo/nt-size: 0.7em;">
                 &nbsp;
               </span>

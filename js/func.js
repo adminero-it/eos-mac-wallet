@@ -127,6 +127,8 @@ $(function () {
                       savepass: chkbox,
                       action: 'new', },
                     function(data) { 
+                                    $('#newname').val('');
+                                    $('#savepass').prop('checked', false);
                                     $('#infobox').prepend(data+'<br /><br />');
                                     });
               refreshwalletlist();
@@ -162,17 +164,16 @@ $(function () {
         $('#walletsbox').on('click', '.importbtn', function (){
         //$('.importbtn').click(function(){ 
             var idd = '#impass-'+$(this).attr('id');
-            var iddval = '#impass-'+$(this);
              $.post(
                     "wallet.php", 
                     { id: $(this).attr('id'),
                       impass: $(idd).val(),
                       action: 'import', },
                     function(data) { 
-                                    $('#infobox').prepend(data+'<br /><br />');
-                                    $(iddval).attr('value','');
-                                    $(iddval).val('');
+                                    $('#infobox').prepend(data.kom+'<br /><br />');
+                                    $(data.wallet).val('');
                                     });
+                    refreshwalletlist();
               });
 
         $('#keylistbtn').click(function(){ 

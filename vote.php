@@ -44,8 +44,26 @@ if ($_POST['action'] == 'changeaddress') {
             }
 
     }else{
+
+        $s = shell_exec('./cleos get account -j '.$_POST['address']);
+
+        if ($s){
+            $storefilename = $pwd.'/your_snapshot_record.txt';
+            $rec = '"","'.$_POST['address'].'","",""';
+            $r = file_put_contents($storefilename,$rec);
+            if ($r === false) {
+                $status = 'ERROR';
+                $kom = "ERROR - something went wrong, try again";
+            }else{
+                $status = 'OK';
+                $kom = "OK - your data is stored now";
+            }
+
+        }else {
                 $status = 'ERROR';
                 $kom = "ERROR - address not exist!";
+        }
+
     }
     
     $data = [status => $status,
@@ -152,21 +170,21 @@ if ($_POST['action'] == 'accountinfo') {
     echo $info;
 }
 
+
+
+
 if ($_POST['action'] == 'getproducers') {
 
-
-    $list = exec('./cleos system listproducers -j -l 1000'.' 2>&1',$o,$r);
+    $list = exec('./cleos system listproducers -j -l 500'.' 2>&1',$o,$r);
 
     if ($o) { $o = implode(" ",$o); }
-    $o = clear("$o");
-    $o = str_replace("Producer", "", $o);
-    $o = str_replace("key", "", $o);
-    $o = str_replace("Url", "", $o);
-    $o = str_replace("Scaled", "", $o);
-    $o = str_replace("votes", "", $o);
+       print('<span class="producerrow">
+                <span style="width:30%;display:inline-block;">eosemerge</span>
+                <span style="width:50%;display:inline-block;">http://eosemerge.io</span>
+                <span style="width:10%;display:inline-block;">PL</span>
+                <input type="checkbox" class="voted" id="v-eosemerge" name="eosemerge" /></span><br />');
+
     $z = json_decode($o);
-    //print('<span style="text-align:center">*** select max 30 ***</span><br />');
-    print('<form id="bplist" name="bplist">');
     foreach($z->rows as $info)
     {
         unset($s);
@@ -181,17 +199,23 @@ if ($_POST['action'] == 'getproducers') {
                 } else {$slocation = ''; }
         }
 
+        if ($info -> owner != 'emergepoland'){
+           $rec = array('owner' => $info -> owner, 'total_votes' => $info -> total_votes, 'producer_key' => $info -> producer_key, 'is_active' => $info -> is_active, 'url' => $info -> url, 'unpaid_blocks' => $info -> unpaid_blocks, 'last_claim_time' => $info -> last_claim_time, 'location' => $info -> location, 'slocation' => $slocation);
+        }
+       $producer_list[$info -> owner] = $rec;
+    }//foreach
+
+    shuffle($producer_list);
+
+    foreach ($producer_list as $a => $b){
        print('<span class="producerrow">
-                <span style="width:30%;display:inline-block;">'.$info -> owner.'</span>
-                <span style="width:50%;display:inline-block;">'.$info -> url.'</span>
-                <span style="width:10%;display:inline-block;">'.$slocation.'</span>
-                <input type="checkbox" class="voted" id="v-'.$info -> owner.'" name="'.$info -> owner.'" /></span><br />');
-    }
-    print('</form>');
-    //print("$o"); 
-    //header('Content-Type: application/json');
-    //echo ($o);    
-} 
+                <span style="width:30%;display:inline-block;">'.$b['owner'].'</span>
+                <span style="width:50%;display:inline-block;">'.$b['url'].'</span>
+                <span style="width:10%;display:inline-block;">'.$b['slocation'].'</span>
+                <input type="checkbox" class="voted" id="v-'.$b['owner'].'" name="'.$b['owner'].'" /></span><br />');
+    }//foreach
+}//function
+
 
 if ($_POST['action'] == 'checkstoredaccount') {
 

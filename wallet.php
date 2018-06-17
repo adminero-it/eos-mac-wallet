@@ -15,7 +15,7 @@ if ($_POST['action'] == 'new') {
         $fname = 'default';
         if ($o) { $o = implode(" ",$o); }
     }
-    if ($_POST['savepass']=='on'){
+    if ($_POST['savepass']==true){
         $filename = $home.'/'.$fname.'_wallet_password.txt';
         $fnametxt = $fname.'_wallet_password.txt';
         $passtext = explode('"', $o);
@@ -27,7 +27,6 @@ if ($_POST['action'] == 'new') {
 
 $o = clear("$o");
 print("$o"); 
-
 }
 
 if ($_POST['action'] == 'del') {
@@ -35,7 +34,7 @@ if ($_POST['action'] == 'del') {
     $walletdirdel = $home.'/eosio-wallet/'.$_POST['id'].'.wallet';
     $passfilename = $home.'/'.$_POST['id'].'_wallet_password.txt';
     unlink($walletdirdel);
-    unlink($passfilename);
+    if (is_file($passfilename)) { unlink($passfilename); }
     $o = 'Wallet '.$_POST['id'].' deleted';
     
     $o = clear("$o");
@@ -99,7 +98,20 @@ if($_POST['action'] == 'import'){
 
     if ($o) { $o = implode(" ",$o); }
     $o = clear("$o");
-    print("$o"); 
+    
+    $status = 'OK';
+    $kom = $o;
+    //print("$o"); 
+
+
+
+    $data = [status => $status,
+            wallet => 'impass-'.$_POST['id'],
+            kom => $kom,];
+
+    header('Content-Type: application/json');
+    echo json_encode($data);    
+
 }
 
 ?>
