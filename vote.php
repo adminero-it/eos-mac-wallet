@@ -16,8 +16,9 @@ if ($_POST['action'] == 'vote') {
     $voter = $_POST['voter'];
     
     exec('./cleos system voteproducer prods '.$voter.' '.$bptovote.' -p '.$voter.' 2>&1',$o,$r);
-    //print('./cleos system voteproducer prods '.$voter.' '.$bptovote.' -p '.$voter);
+    print('./cleos system voteproducer prods '.$voter.' '.$bptovote.' -p '.$voter);
     if ($o) { $o = implode(" ",$o); }
+    print("$o");
     if (strpos($o,'Error') !== false) {
         $o = clear($o);
         $o = explode('Error', $o);
@@ -179,10 +180,10 @@ if ($_POST['action'] == 'getproducers') {
 
     if ($o) { $o = implode(" ",$o); }
        print('<span class="producerrow">
-                <span style="width:30%;display:inline-block;">eosemerge</span>
+                <span style="width:30%;display:inline-block;">emergepoland</span>
                 <span style="width:50%;display:inline-block;">http://eosemerge.io</span>
                 <span style="width:10%;display:inline-block;">PL</span>
-                <input type="checkbox" class="voted" id="v-eosemerge" name="eosemerge" /></span><br />');
+                <input type="checkbox" class="voted" id="v-emergepoland" name="emergepoland" /></span><br />');
 
     $z = json_decode($o);
     foreach($z->rows as $info)
