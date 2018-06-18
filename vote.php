@@ -16,7 +16,7 @@ if ($_POST['action'] == 'vote') {
     $voter = $_POST['voter'];
     
     exec('./cleos system voteproducer prods '.$voter.' '.$bptovote.' -p '.$voter.' 2>&1',$o,$r);
-    print('./cleos system voteproducer prods '.$voter.' '.$bptovote.' -p '.$voter);
+
     if ($o) { $o = implode(" ",$o); }
     if (strpos($o,'Error') !== false) {
         $o = clear($o);
