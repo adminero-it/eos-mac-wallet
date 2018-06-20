@@ -92,7 +92,6 @@
                 <input id="showcreate" class="bt/n btn-default" type="button" value="create new wallet" />
                 <input id="keylistbtn" class="bt/n btn-default" type="button" value="list keys (from all unlocked wallets)" />
                 <input id="lockallbtn" class="bt/n btn-default" type="button" value="lock all wallets" />
-                <input id="checkbtn" class="bt/n btn-default" type="button" value="check installation" /> 
             </p>
           </div>
 
@@ -105,7 +104,7 @@
           </div>
 
           <div class="col-8 mx-auto" align="left" style="text-align: left;">
-                <h3 id="refreshwallets">List of Your WALLETS:</h3>
+                <h3 id="refreshwallets">List of Your WALLETS:<span style="font-size:0.2em;vertical-align:text-top;"><br />[click to refresh]</span></h3>
           </div>
           <div id="walletsbox" class="col-8 mx-auto" align="left">
                 <br />
@@ -129,7 +128,7 @@
             <div class="col-lg-12 mx-auto" align="left" style="text-align: left;vertical-align: middle;">
                 <span id="storedaccounttxt" style="padding-right:20px;vertical-ali/gn: text-bottom;"></span>
                 <input id="storedaccount" type="hidden" value="" />
-                <input id="accountinfo" name="" class="bt/n btn-default" type="button" value="stored account info" style="vertical-align:text-bottom;display:none;" />
+                <input id="accountinfo" name="" class="bt/n btn-default" type="button" value="get account info" style="vertical-align:text-bottom;display:none;" />
                 <input id="findaddress" class="bt/n btn-default" type="button" value="find address" style="vertical-align:text-bottom;" />
                 <input id="changeaccount" class="bt/n btn-default" type="button" value="change account" style="vertical-align:text-bottom;" />
             </div>
@@ -177,11 +176,175 @@
     <section id="cleos" class="content-section text-center">
       <div class="container">
         <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2>cleos</h2>
-              <p style="margin-bottom:100px;">* * * comming soon * * *</p>
-              <a href="http://eosemerge.io/" class="btn btn-default btn-lg">Visit our Page</a> <a href="https://gitlab.com/emergepoland/eos-mac-wallet" class="btn btn-default btn-lg">check gitlab repo</a>
+            <div class="col-lg-12 mx-auto" align="left" style="text-align: left;vertical-align: middle;">
+                <input id="generatekey" class="bt/n btn-default" type="button" value="generate new keypar" style="vertical-align:text-bottom;" />
+                <input id="createaccount" class="bt/n btn-default" type="button" value="create account" style="vertical-align:text-bottom;" />
+                <input id="transfer" class="bt/n btn-default" type="button" value="transfer" style="vertical-align:text-bottom;" />
+                <input id="stake" class="bt/n btn-default" type="button" value="stake" style="vertical-align:text-bottom;" />
+                <input id="unstake" class="bt/n btn-default" type="button" value="unstake" style="vertical-align:text-bottom;" />
+                <input id="bidnames" class="bt/n btn-default" type="button" value="bid names" style="vertical-align:text-bottom;" />
+                <input id="command" class="bt/n btn-default" type="button" value="write command" style="vertical-align:text-bottom;" />
+                <input id="updateapp" class="bt/n btn-default" type="button" value="check app" style="vertical-align:text-bottom;" /> 
+            </div>
+
+
+          <div class="col-lg-12 mx-auto">
+            <h2 style="margin:5px;margin-top:10px;">cleos interface</h2>
           </div>
+
+          <div id="activeaccount" class="col-lg-3 mx-auto" align="left" style="mar/gin: 5px;border:1px solid white;width:100%;height:100%;min-height:350px;max-height:350px;overflow:auto;">
+              <h4 style="border-bottom:1px solid white;margin-bottom: 5px;">active account</h4>
+                  <span id="accountbox" style="font-size: 0.7em;line-height: normal;">
+                    &nbsp;
+                  </span>
+
+          </div>
+
+          <div id="cleosworkspace" class="col-lg-9 mx-auto" align="left" style="width:100%;height:100%;min-height:350px;max-height:350px;overflow:auto;">
+
+
+                  <div id="clinterface" class="col-12 mx-auto" align="left" style="margin-bottom: 5px;border:1px solid white;width:100%;height:100%;min-height:200px;max-height:200px;overflow:auto;">
+
+                      <div id="generatekeyfrm" class="col-lg-12 mx-auto" style="text-align:left;display:none;">
+                          <span id="generatekeyinfo" style="margin-top:20px;">keys below are not stored or saved or sent - only displayed 10 seconds</span>
+                      </div>
+
+                      <div id="newaccountfrm" class="col-lg-12 mx-auto" style="text-align:left;display:none;">
+                        <span style=""></span>
+                            <p style="font-size:0.8em;margin:3px;margin-top:10px;">
+                                <label for="colFormLabel" class="col-sm-2 col-form-label">new EOS account name: </label>
+                                <input id="newaccountname" name="newaccountname" type="text" placeholder="12 char [a-z,1-5]" />
+                            </p>
+                            <p style="font-size:0.8em;margin:3px;margin-top:5px;">
+                                
+                                <label for="colFormLabel" class="col-sm-2 col-form-label">stake NET: </label>
+                                <input id="newaccountstakenet" name="newaccountstakenet" type="text" placeholder="x.xxxx" style="width:60px;text-align:right;" /> EOS  
+                                
+                                <label for="colFormLabel" class="col-sm-2 col-form-label">stake CPU:  </label>
+                                <input id="newaccountstakecpu" name="newaccountstakecpu" type="text" placeholder="x.xxxx" style="width:60px;text-align:right;" /> EOS 
+                                
+                                <label for="colFormLabel" class="col-sm-2 col-form-label">buy RAM:  </label>
+                                <input id="newaccountbuyram" name="newaccountbuyram" type="text" placeholder="x.xxxx" style="width:60px;text-align:right;" /> EOS
+                            </p>
+                            <p style="font-size:0.8em;margin:3px;margin-top:5px;">
+                                 
+                                <label for="colFormLabel" class="col-sm-2 col-form-label">owner pub key:  </label>
+                                <input id="newaccountownerpubkey" name="newaccountownerpubkey" type="text" placeholder="owner public key" style="width:350px;" />
+                            </p>
+                            <p style="font-size:0.8em;margin:3px;margin-top:5px;">
+                                 
+                                <label for="colFormLabel" class="col-sm-2 col-form-label">active pub key:  </label>
+                                <input id="newaccountactivepubkey" name="newaccountactivepubkey" type="text" placeholder="active public key" style="width:350px;" />
+                                <input id="newaccountbtn" type="button" value="create" class="bt/n btn-default" /> 
+                            </p>
+                      </div>
+
+                      <div id="transferfrm" class="col-lg-12 mx-auto" style="text-align:left;display:none;">
+                        <span style=""></span>
+                            <p style="font-size:0.8em;margin:3px;margin-top:15px;"> 
+                                <label for="colFormLabel" class="col-sm-2 col-form-label">sender: </label>
+                                <input id="sender" name="sender" type="text" placeholder="[a-z,1-5] max 12chr" style="wi/dth:30%;" />
+                                <label for="colFormLabel" class="col-sm-2 col-form-label">receiver: </label>
+                                <input id="receiver" name="receiver" type="text" placeholder="[a-z,1-5] max 12chr" style="wid/th:30%;" />
+                            </p>
+                            <p style="font-size:0.8em;margin:3px;margin-top:5px;"> 
+                                <label for="colFormLabel" class="col-sm-2 col-form-label">amount: </label>
+                                <input id="amount" name="amount" type="text" placeholder="x.xxxx" style="width:60px;text-align:right;margin-top:10px;" /> EOS</p>
+                            <p style="font-size:0.8em;margin:3px;margin-top:5px;"> 
+                                <label for="colFormLabel" class="col-sm-2 col-form-label">memo: </label>
+                                <input id="memo" name="memo" type="text" placeholder="optional memo" style="widt/h:30%;" />
+                            </p>
+                            <p style="font-size:0.8em;margin:3px;margin-top:5px;"> 
+                                <input id="transferbtn" type="button" value="transfer" class="bt/n btn-default" style="marg/in-left: 50px;" />
+                            </p>
+                      </div>
+
+                      <div id="stakefrm" class="col-lg-12 mx-auto" style="text-align:left;display:none;">
+                        <span style=""></span>
+                            <p style="font-size:0.8em;margin:3px;margin-top:15px;"> 
+                                <label for="colFormLabel" class="col-sm-2 col-form-label">from: </label>
+                                <input id="stsender" name="stsender" type="text" placeholder="[a-z,1-5] max 12chr" style="wi/dth:30%;" />
+                                <label for="colFormLabel" class="col-sm-2 col-form-label">receiver: </label>
+                                <input id="streceiver" name="streceiver" type="text" placeholder="[a-z,1-5] max 12chr" style="wid/th:30%;" />
+                            </p>
+                            <p style="font-size:0.8em;margin:3px;margin-top:5px;"> 
+                                <label for="colFormLabel" class="col-sm-2 col-form-label">stake NET: </label>
+                                <input id="stakenet" name="stakenet" type="text" placeholder="x.xxxx" style="width:60px;text-align:right;margin-top:10px;" /> EOS</p>
+                            <p style="font-size:0.8em;margin:3px;margin-top:5px;"> 
+                                <label for="colFormLabel" class="col-sm-2 col-form-label">stake CPU: </label>
+                                <input id="stakecpu" name="stakecpu" type="text" placeholder="x.xxxx" style="width:60px;text-align:right;margin-top:10px;" /> EOS</p>
+                            <p style="font-size:0.8em;margin:3px;margin-top:5px;"> 
+                                <input id="stakebtn" type="button" value="stake" class="bt/n btn-default" style="marg/in-left: 50px;" />
+                            </p>
+                      </div>
+
+                      <div id="unstakefrm" class="col-lg-12 mx-auto" style="text-align:left;display:none;">
+                        <span style=""></span>
+                            <p style="font-size:0.8em;margin:3px;margin-top:15px;"> 
+                                <label for="colFormLabel" class="col-sm-2 col-form-label">from: </label>
+                                <input id="unstsender" name="unstsender" type="text" placeholder="[a-z,1-5] max 12chr" style="wi/dth:30%;" />
+                                <label for="colFormLabel" class="col-sm-2 col-form-label">receiver: </label>
+                                <input id="unstreceiver" name="unstreceiver" type="text" placeholder="[a-z,1-5] max 12chr" style="wid/th:30%;" />
+                            </p>
+                            <p style="font-size:0.8em;margin:3px;margin-top:5px;"> 
+                                <label for="colFormLabel" class="col-sm-2 col-form-label">unstake NET: </label>
+                                <input id="unstakenet" name="unstakenet" type="text" placeholder="x.xxxx" style="width:60px;text-align:right;margin-top:10px;" /> EOS</p>
+                            <p style="font-size:0.8em;margin:3px;margin-top:5px;"> 
+                                <label for="colFormLabel" class="col-sm-2 col-form-label">unstake CPU: </label>
+                                <input id="unstakecpu" name="unstakecpu" type="text" placeholder="x.xxxx" style="width:60px;text-align:right;margin-top:10px;" /> EOS</p>
+                            <p style="font-size:0.8em;margin:3px;margin-top:5px;"> 
+                                <input id="unstakebtn" type="button" value="unstake" class="bt/n btn-default" style="marg/in-left: 50px;" />
+                            </p>
+                      </div>
+
+                      <div id="bidnamesfrm" class="col-lg-12 mx-auto" style="text-align:left;display:none;">
+                        <span style="">Bid for short names:
+                            <p style="font-size:0.8em;margin:3px;margin-top:15px;"> <input id="bidnameinfo" name="bidnameinfo" type="text" placeholder="[a-z,1-5] max 12chr" style="width:30%;" />
+                                <input id="bidnameinfobtn" type="button" value="get info about name" class="bt/n btn-default" />
+                            </p>
+                            <p style="font-size:0.8em;margin:3px;margin-top:25px;">
+                                name to bid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="bidnamenew" name="bidnamenew" type="text" placeholder="[a-z,1-5] max 12chr" style="width:30%;" /><br />
+                                amount to bid:&nbsp;<input id="bidvalue" name="bidvalue" type="text" placeholder="x.xxxx" style="width:60px;text-align:right;margin-top:10px;" /> EOS 
+                                <input id="bidnamenewbtn" type="button" value="bid name!" class="bt/n btn-default" style="margin-left: 50px;" />
+                            </p>
+                        </span>
+                      </div>
+
+                      <div id="commandfrm" class="col-lg-12 mx-auto" style="text-align:left;display:none;">
+                        <span style="padding-top:20px;">write below your own command for cleos (without cleos):</span>
+                            <p style="font-size:0.8em;margin:3px;margin-top:15px;"> ./cleos <input id="commandtxt" name="commandtxt" type="text" placeholder="type command i.e. system delegatebw xxxx xxxx xxxx" style="width:90%;" />
+                            </p>
+                            <p style="font-size:0.8em;margin:3px;margin-top:25px;">
+                                <input id="commandbtn" type="button" value="send command" class="bt/n btn-default" style="margin-left: 50px;" />
+                      </div>
+
+                      <div id="updatefrm" class="col-lg-12 mx-auto" style="text-align:left;display:none;">
+                        <span style="">
+                            <p style="margin:5px;margin-top:10px;">
+                                <span id="updateusingversion"></span><br />
+                                <input id="checkgitkupdate" type="button" value="check update" class="bt/n btn-default" /> 
+                            </p>
+                                
+                        </span>
+                      </div>
+
+
+                  </div>
+        
+                  <div class="col-12 mx-auto" align="left" style="margin-top: 10px;border:1px solid white;width:100%;height:100%;min-height:140px;max-height:140px;overflow:auto;">
+                      <h4 style="border-bottom:1px solid white;margin-bottom: 5px;">infobox</h4>
+                      <span id="cleosinfobox" style="font-size: 0.7em;">
+                        &nbsp;
+                      </span>
+                  </div>
+
+
+          </div>
+
+
+
+
+
         </div>
       </div>
     </section>
