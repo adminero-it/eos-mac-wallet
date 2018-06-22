@@ -126,7 +126,7 @@
         <div class="row">
 
             <div class="col-lg-12 mx-auto" align="left" style="text-align: left;vertical-align: middle;">
-                <span id="storedaccounttxt" style="padding-right:20px;vertical-ali/gn: text-bottom;"></span>
+                <span id="storedaccounttxt" style="padding-right:20px;">no active account<br />click "change account"</span>
                 <input id="storedaccount" type="hidden" value="" />
                 <input id="accountinfo" name="" class="bt/n btn-default" type="button" value="get account info" style="vertical-align:text-bottom;display:none;" />
                 <input id="findaddress" class="bt/n btn-default" type="button" value="find address" style="vertical-align:text-bottom;" />
@@ -195,7 +195,7 @@
           <div id="activeaccount" class="col-lg-3 mx-auto" align="left" style="mar/gin: 5px;border:1px solid white;width:100%;height:100%;min-height:350px;max-height:350px;overflow:auto;">
               <h4 style="border-bottom:1px solid white;margin-bottom: 5px;">active account</h4>
                   <span id="accountbox" style="font-size: 0.7em;line-height: normal;">
-                    &nbsp;
+                    no active account<br />"change account" on Vote page
                   </span>
 
           </div>
@@ -365,9 +365,9 @@
                 </a>
               </li>
               <li class="list-inline-item">
-                <a href="https://gitlab.com/emergepoland/" class="btn btn-default btn-lg">
-                  <i class="fa fa-gitlab fa-fw"></i>
-                  <span class="network-name">Gitlab</span>
+                <a href="https://github.com/emergepoland/" class="btn btn-default btn-lg">
+                  <i class="fa fa-github fa-fw"></i>
+                  <span class="network-name">Github</span>
                 </a>
               </li>
               <li class="list-inline-item">
