@@ -279,7 +279,7 @@ if ($_POST['action'] == 'generatekey') {
 }
 
 if ($_POST['action'] == 'check') {
-    $arch=shell_exec(uname);
+    $arch=trim(shell_exec(uname));
 
     if ($arch == "Darwin"){
             if (file_exists("/usr/local/opt/llvm@4/lib/libc++.1.dylib")){
