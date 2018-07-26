@@ -35,7 +35,7 @@ if ($_POST['action'] == 'command') {
 }
 
 
-if ($_POST['action'] == 'stake') {
+if ($_POST['action'] == 'unstake') {
 
     $i = exec('./cleos system undelegatebw '.$_POST['sender'].' '.$_POST['receiver'].' "'.$_POST['unstakenet'].' EOS" "'.$_POST['unstakecpu'].' EOS" -p '.$_POST['sender'].' 2>&1',$o,$r);
 
@@ -62,7 +62,7 @@ if ($_POST['action'] == 'stake') {
 }
 
 
-if ($_POST['action'] == 'unstake') {
+if ($_POST['action'] == 'stake') {
 //./cleos system delegatebw [OPTIONS] from receiver stake_net_quantity stake_cpu_quantity -p from
 //print_r($_POST);
 
